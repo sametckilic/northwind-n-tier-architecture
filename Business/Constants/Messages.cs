@@ -13,5 +13,7 @@ namespace Business.Constants
         public static string ProductNameInvalid = "Product name is invalid.";
 
         public static string MaintenanceTime = "System is on Maintenance Time.";
+
+        public static string ProductsListed = "Products has been listed.";
     }
 }
