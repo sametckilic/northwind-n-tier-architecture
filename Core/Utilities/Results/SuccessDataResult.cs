@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Core.Utilities.Results
 {
     public class SuccessDataResult<T> : DataResult<T>
@@ -20,7 +21,7 @@ namespace Core.Utilities.Results
         {
 
         }
-        public SuccessDataResult(List<global::Entities.Concrete.Category> categories) : base(default, true)
+        public SuccessDataResult() : base(default, true)
         {
 
         }
