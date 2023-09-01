@@ -20,7 +20,7 @@ namespace Core.Utilities.Results
         {
 
         }
-        public SuccessDataResult() : base(default, true)
+        public SuccessDataResult(List<global::Entities.Concrete.Category> categories) : base(default, true)
         {
 
         }
