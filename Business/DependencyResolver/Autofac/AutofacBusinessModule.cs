@@ -28,8 +28,6 @@ namespace Business.DependencyResolver.Autofac
                 {
                     Selector = new AspectInterceptorSelector()
                 }).SingleInstance();
-
-
         }
     }
 }

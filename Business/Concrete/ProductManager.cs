@@ -32,11 +32,14 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
+            if (CheckIfProductCountOfCategoryCorrect(product.CategoryId).Success)
+            {
+                _productDal.Add(product);
 
+                return new SuccessResult(Messages.ProductAdded);
+            }
 
-            _productDal.Add(product);
-
-            return new SuccessResult(Messages.ProductAdded);
+            return new ErrorResult();
         }
 
         public IDataResult<List<Product>> GetAll()
@@ -70,6 +73,16 @@ namespace Business.Concrete
         public IDataResult<List<ProductDetailsDto>> GetProductDetails()
         {
             return new SuccessDataResult<List<ProductDetailsDto>>(_productDal.GetProductDetails());
+        }
+
+        private IResult CheckIfProductCountOfCategoryCorrect(int categoryId)
+        {
+            var result = _productDal.GetAll(p => p.CategoryId == categoryId).Count;
+            if (result >= 10)
+            {
+                return new ErrorResult(Messages.ProductCountOfCategoryError);
+            }
+            return new SuccessResult();
         }
     }
 }
