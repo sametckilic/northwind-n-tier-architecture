@@ -19,6 +19,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using Core.Utilities.Security.Encryption;
+using Core.Extensions;
+using Core.DependencyResolver;
 
 namespace WebAPI
 {
@@ -55,6 +57,11 @@ namespace WebAPI
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
+            });
+
+            services.AddDependecyResolver(new Core.Utilities.IoC.ICoreModule[]
+            {
+                new CoreModule()
             });
         }
 
