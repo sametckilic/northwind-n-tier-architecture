@@ -16,7 +16,6 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using ValidationException = FluentValidation.ValidationException;
 
 namespace Business.Concrete
 {
